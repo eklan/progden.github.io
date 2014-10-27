@@ -76,7 +76,7 @@ SQL from VB <br />
 <textarea id="sql" style="width: 500px; height: 300px; ">
 </textarea><br/>
 <button id="validate">highlight</button><button id="clr">clr</button><br />
-	sel tbl: <input id="sel_tbl" />
+	sel tbl: <input id="sel_tbl" /><button onclick="$('#sel_tbl').val('');" >clear</button>
 <ol id="tbl">
 </ol><br />
 <table>
@@ -87,7 +87,7 @@ SQL from VB <br />
 	</pre>
 	</span>
 </td><td style="vertical-align:text-top;">
-	<button onclick="$('#history li').remove()" >clear</button>
+	<button onclick="$('#history li').remove();" >clear</button>
 	<ol id="history">
 		<li>test</li>
 	</ol>
