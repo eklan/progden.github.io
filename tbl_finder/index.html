@@ -4,28 +4,29 @@
 <script src="jquery-1.9.1.min.js"></script>
 <script src="jquery.highlight.js"></script>
 <script src="data.js"></script>
-<script type="text/javascript">
+<script type="text/javascript">	
+	var reload = function(){
+		$("#tbl li").remove();
+
+		var sql = $("#sql").val(); 
+		$("#sql_hl pre").text(sql);
+		var re = /(?:from *)(.+?)[\n\s]+(?:inner|outer|right|left|where)/gim;
+
+		var match ;
+		while((match = re.exec(sql)) != null){
+			var $li = $("<li class='tblName'>"+match[1]+"</li>");
+			$("#tbl").append($li);
+		}
+		re = /(?:join *)(.+?)[\n\s]+(?:on)/gim;
+		while((match = re.exec(sql)) != null){
+			var $li = $("<li class='tblName'>"+match[1]+"</li>");
+			$("#tbl").append($li);
+		}
+		// high light all
+		$("#tbl li").each(function(i, e){$("#sql_hl").highlight($(e).text())})
+	};
 	$(function(){
-		$("#validate").click(function(){
-			$("#tbl li").remove();
-
-			var sql = $("#sql").val(); 
-			$("#sql_hl pre").text(sql);
-			var re = /(?:from *)(.+?)[\n\s]+(?:inner|outer|right|left|where)/gim;
-
-			var match ;
-			while((match = re.exec(sql)) != null){
-				var $li = $("<li class='tblName'>"+match[1]+"</li>");
-				$("#tbl").append($li);
-			}
-			re = /(?:join *)(.+?)[\n\s]+(?:on)/gim;
-			while((match = re.exec(sql)) != null){
-				var $li = $("<li class='tblName'>"+match[1]+"</li>");
-				$("#tbl").append($li);
-			}
-			// high light all
-			$("#tbl li").each(function(i, e){$("#sql_hl").highlight($(e).text())})
-		});
+		$("#validate").click(reload);
 
 		$("#tbl").on("click", "li.tblName", function(){
 			$("#sql_hl pre").text($("#sql").val());
@@ -47,7 +48,7 @@
 
 		var colSearch = function(tblName, colName){
 			var $li = $("<li></li>");
-			$li.text("col:"+colName + " -> " + col_map(tblName, colName));
+			$li.text("col:["+tblName+"]."+colName + " -> " + col_map(tblName, colName));
 			$("#history").append($li);
 		}
 
@@ -89,7 +90,6 @@ SQL from VB <br />
 </td><td style="vertical-align:text-top;">
 	<button onclick="$('#history li').remove();" >clear</button>
 	<ol id="history">
-		<li>test</li>
 	</ol>
 </td></tr>
 </table>
@@ -133,6 +133,6 @@ SQL from VB <br />
 "          f2.NUMB_FILE"
 		);
 		$("#sql_hl pre").text($("#sql").val());
-
+		reload();
 	})
 </script>
