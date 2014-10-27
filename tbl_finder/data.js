@@ -216,12 +216,12 @@ var table_mapping = [
 
 function table_map(source){
 	for(var d in table_mapping){
-		if(d.source == source)
-			return d.target;
+		if(table_mapping[d].source.toUpperCase() == source.toUpperCase())
+			return table_mapping[d].target;
 	}
-	return "table找不到";
+	return "table not found";
 }
 
 function col_map(tblName, colName){
-	
+	return "還沒找column";
 }
