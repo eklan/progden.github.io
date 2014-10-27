@@ -96,41 +96,9 @@ SQL from VB <br />
 <script type="text/javascript">
 	$(function(){
 		$("#sql").val(
-"SELECT f2.desp_gru, \n" +
-"       f1.cdate_file, \n" +
-"       f2.YEAR_FILE, \n" +
-"       e.desp_ivword, \n" +
-"       f2.CODE_WORD_FILE, \n" +
-"       f2.NUMB_FILE, \n" +
-"       f2.code_reasn, \n" +
-"       b.desp_reasn, \n" +
-"       i52.sname \n" +
-"FROM   KT001 f1 \n" +
-"       LEFT JOIN KT002 f2 \n" +
-"              ON f1.fileno = f2.fileno \n" +
-"       LEFT JOIN CT051 e \n" +
-"              ON e.code_ivword = f2.CODE_WORD_FILE \n" +
-"       LEFT JOIN CT052 b \n" +
-"              ON b.code_reasn = f2.code_reasn \n" +
-"       LEFT JOIN DT052 i52 \n" +
-"              ON i52.year_iv = f2.YEAR_FILE \n" +
-"                 AND i52.code_ivword = f2.CODE_WORD_FILE \n" +
-"                 AND i52.numb_iv = f2.NUMB_FILE \n" +
-"WHERE  ( f1.fileno <> '' \n" +
-"          OR f1.fileno IS NOT NULL ) \n" +
-"       AND ( YEAR_FILE = '' \n" +
-"              OR YEAR_FILE IS NULL ) \n" +
-"       AND ( CODE_WORD_FILE = '' \n" +
-"              OR CODE_WORD_FILE IS NULL ) \n" +
-"       AND ( NUMB_FILE = '' \n" +
-"              OR NUMB_FILE IS NULL ) \n" +
-"       AND f2.yn_file = '1' \n" +
-"       AND f1.cdate_file >= '103/10/21' \n" +
-"       AND f1.cdate_file <= '103/10/22' \n" +
-"ORDER  BY f2.desp_gru, \n" +
-"          f2.YEAR_FILE, \n" +
-"          f2.CODE_WORD_FILE, \n" +
-"          f2.NUMB_FILE"
+"select cdate_file\n"+
+"from ivm01 \n"+
+"where cdate_file <> ''"
 		);
 		$("#sql_hl pre").text($("#sql").val());
 		reload();
