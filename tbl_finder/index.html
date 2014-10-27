@@ -1,0 +1,138 @@
+<style type="text/css">
+	.highlight { background-color: yellow }
+</style>
+<script src="jquery-1.9.1.min.js"></script>
+<script src="jquery.highlight.js"></script>
+<script src="data.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#validate").click(function(){
+			$("#tbl li").remove();
+
+			var sql = $("#sql").val(); 
+			$("#sql_hl pre").text(sql);
+			var re = /(?:from *)(.+?)[\n\s]+(?:inner|outer|right|left|where)/gim;
+
+			var match ;
+			while((match = re.exec(sql)) != null){
+				var $li = $("<li class='tblName'>"+match[1]+"</li>");
+				$("#tbl").append($li);
+			}
+			re = /(?:join *)(.+?)[\n\s]+(?:on)/gim;
+			while((match = re.exec(sql)) != null){
+				var $li = $("<li class='tblName'>"+match[1]+"</li>");
+				$("#tbl").append($li);
+			}
+			// high light all
+			$("#tbl li").each(function(i, e){$("#sql_hl").highlight($(e).text())})
+		});
+
+		$("#tbl").on("click", "li.tblName", function(){
+			$("#sql_hl pre").text($("#sql").val());
+			$("#sql_hl").highlight($(this).text());
+			$("#sel_tbl").val($(this).text().split(" ")[0])
+		});
+
+		$("#clr").click(function(){
+			$("#sql_hl").removeHighlight();
+			// high light all
+			$("#tbl li").each(function(i, e){$("#sql_hl").highlight($(e).text())})
+		});
+
+		var tableSearch = function(tblName){
+			var $li = $("<li></li>");
+			$li.text("tbl:"+tblName + " -> " + table_map(tblName));
+			$("#history").append($li);
+		}
+
+		var colSearch = function(tblName, colName){
+			var $li = $("<li></li>");
+			$li.text("col:"+colName + " -> " + col_map(tblName, colName));
+			$("#history").append($li);
+		}
+
+
+		var p = $('#sql_hl');
+	    p.css({ cursor: 'pointer' });
+
+	    /* doubleclick event working with ranges */
+	    p.dblclick(function(e) {
+	        var selection = window.getSelection() || document.getSelection() || document.selection.createRange();
+	        var word = $.trim(selection.toString());
+	        if(word != '') {
+	        	if($("#sel_tbl").val() == ""){
+	            	tableSearch(word);	
+	        	}else{
+	        		colSearch($("#sel_tbl").val(), word);
+	        	}
+	        }
+	        /* use this if firefox: selection.collapse(selection.anchorNode, selection.anchorOffset); */
+	        selection.collapse();
+	        e.stopPropagation();
+	    });
+	});
+</script>
+SQL from VB <br />
+<textarea id="sql" style="width: 500px; height: 300px; ">
+</textarea><br/>
+<button id="validate">highlight</button><button id="clr">clr</button><br />
+	sel tbl: <input id="sel_tbl" />
+<ol id="tbl">
+</ol><br />
+<table>
+<tr><td>
+	<span id="sql_hl">
+	<pre>
+		
+	</pre>
+	</span>
+</td><td style="vertical-align:text-top;">
+	<button onclick="$('#history li').remove()" >clear</button>
+	<ol id="history">
+		<li>test</li>
+	</ol>
+</td></tr>
+</table>
+<script type="text/javascript">
+	$(function(){
+		$("#sql").val(
+"SELECT f2.desp_gru, \n" +
+"       f1.cdate_file, \n" +
+"       f2.YEAR_FILE, \n" +
+"       e.desp_ivword, \n" +
+"       f2.CODE_WORD_FILE, \n" +
+"       f2.NUMB_FILE, \n" +
+"       f2.code_reasn, \n" +
+"       b.desp_reasn, \n" +
+"       i52.sname \n" +
+"FROM   KT001 f1 \n" +
+"       LEFT JOIN KT002 f2 \n" +
+"              ON f1.fileno = f2.fileno \n" +
+"       LEFT JOIN CT051 e \n" +
+"              ON e.code_ivword = f2.CODE_WORD_FILE \n" +
+"       LEFT JOIN CT052 b \n" +
+"              ON b.code_reasn = f2.code_reasn \n" +
+"       LEFT JOIN DT052 i52 \n" +
+"              ON i52.year_iv = f2.YEAR_FILE \n" +
+"                 AND i52.code_ivword = f2.CODE_WORD_FILE \n" +
+"                 AND i52.numb_iv = f2.NUMB_FILE \n" +
+"WHERE  ( f1.fileno <> '' \n" +
+"          OR f1.fileno IS NOT NULL ) \n" +
+"       AND ( YEAR_FILE = '' \n" +
+"              OR YEAR_FILE IS NULL ) \n" +
+"       AND ( CODE_WORD_FILE = '' \n" +
+"              OR CODE_WORD_FILE IS NULL ) \n" +
+"       AND ( NUMB_FILE = '' \n" +
+"              OR NUMB_FILE IS NULL ) \n" +
+"       AND f2.yn_file = '1' \n" +
+"       AND f1.cdate_file >= '103/10/21' \n" +
+"       AND f1.cdate_file <= '103/10/22' \n" +
+"ORDER  BY f2.desp_gru, \n" +
+"          f2.YEAR_FILE, \n" +
+"          f2.CODE_WORD_FILE, \n" +
+"          f2.NUMB_FILE"
+		);
+		$("#sql_hl pre").text($("#sql").val());
+
+	})
+</script>
