@@ -1,0 +1,41 @@
+<style type="text/css">
+	.highlight { background-color: yellow }
+</style>
+<script src="jquery-1.9.1.min.js"></script>
+<script src="angular.min.js"></script>
+<script src="jquery.highlight.js"></script>
+
+<script type="text/javascript">	
+/* angularJS tempalte */
+
+// data here
+var data = "data here!!";
+
+// code here
+var app = angular.module('newApp', []);
+app.controller('ctrlr', function($scope){
+    $scope.data = data;
+    $scope.change = function(){
+ 	   $("div").highlight("here");    	
+    };
+    $scope.isEdit = true;
+});
+
+
+$(function(){
+ 	   $("div").highlight("here");    
+});
+</script>
+<style>
+.newClass {
+    background-color: red;
+}
+
+.highlight { background-color: yellow }
+</style>
+<div ng-app="newApp">
+    <div ng-controller="ctrlr">
+        <span ng-show="isEdit">Data: {{data}} </span>
+        <span ng-show="!isEdit">Data:<input type="text" ng-model="data"/></span> 
+    </div>
+</div>
