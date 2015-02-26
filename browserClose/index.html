@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script src="jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(window).bind("beforeunload", function(){
+					alert("beforeunload");
+				});
+				$(window).bind("unload", function(){
+					alert("unload");
+				});
+			});
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
