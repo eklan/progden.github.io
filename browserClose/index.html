@@ -4,10 +4,10 @@
 		<script type="text/javascript">
 			$(function(){
 				$(window).bind("beforeunload", function(){
-					alert("beforeunload");
+					return "beforeunload";
 				});
 				$(window).bind("unload", function(){
-					alert("unload");
+					return "unload";
 				});
 			});
 		</script>
