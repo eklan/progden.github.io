@@ -6,30 +6,6 @@
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
 
-	<style type="text/css">
-		.htmlGroup {
-			background: #D26;
-		}
-		.gameGroup {
-			background: #6D2;
-		}
-		.workGroup {
-			background: #26D;
-		}
-		.item { 
-			width: 25%;
-			margin: 10px 1%;
-			float: left;
-			border-radius: 8px;
-		}
-
-		.item a{
-			padding-left: 10px;
-			color:white;
-			font-size: 13px;
-  			font-weight: bold;
-		}
-	</style>
 </head>
 <body>
 <h1>Hello World</h1>
@@ -48,6 +24,10 @@
   <div class="item gameGroup">
   	<a href="./js_game/">js_game</a>
   </div>
+  <div class="item gameGroup">
+  	<a href="./bowling_kata/">bowling_kata</a>
+  </div>
+
 </div>
 
 <h1>Work</h1>
@@ -60,6 +40,41 @@
   </div>
 </div>
 
+<h1>API</h1>
+<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+  <div class="item apiGroup">
+  	<a href="./google_oauth/">Google OAuth2</a>
+  </div>
+</div>
+
 <hr />
+
+	<style type="text/css">
+		.htmlGroup {
+			background: #D26;
+		}
+		.gameGroup {
+			background: #6D2;
+		}
+		.workGroup {
+			background: #26D;
+		}
+		.apiGroup {
+			background: #D62;
+		}
+		.item { 
+			width: 25%;
+			margin: 10px 1%;
+			float: left;
+			border-radius: 8px;
+		}
+
+		.item a{
+			padding-left: 10px;
+			color:white;
+			font-size: 13px;
+  			font-weight: bold;
+		}
+	</style>
 </body>
 </html>
