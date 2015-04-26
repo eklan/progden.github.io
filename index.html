@@ -8,48 +8,68 @@
 
 </head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-
-<h1>HTML</h1>
-<div class="js-masonry"
-  data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-  <div class="item htmlGroup">
-  	<a href="./browserClose">Browser Close Event</a>
-  </div>
+<div class="header">
+	<h1>Hello World</h1>
+	<p>I'm hosted with GitHub Pages.</p>
 </div>
+<div class="container">
+	<div>
+		<h1>HTML</h1>
+		<div class="js-masonry"
+		  data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+		  <div class="item htmlGroup">
+		  	<a href="./browserClose">Browser Close Event</a>
+		  </div>
+		</div>
+	</div>
 
-<h1>Games</h1>
-<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-  <div class="item gameGroup">
-  	<a href="./js_game/">js_game</a>
-  </div>
-  <div class="item gameGroup">
-  	<a href="./bowling_kata/">bowling_kata</a>
-  </div>
+	<div>
+		<h1>Games</h1>
+		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+		  <div class="item gameGroup">
+		  	<a href="./js_game/">js_game</a>
+		  </div>
+		  <div class="item gameGroup">
+		  	<a href="./bowling_kata/">bowling_kata</a>
+		  </div>
+		</div>
+	</div>
 
+	<div>
+		<h1>Work</h1>
+		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+		  <div class="item workGroup">
+		  	<a href="./HIGHLIGHT">HIGHLIGHT</a>
+		  </div>
+		  <div class="item workGroup">
+		  	<a href="./tbl_finder">tbl_finder</a>
+		  </div>
+		</div>
+	</div>
+
+	<div>
+		<h1>API</h1>
+		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+		  <div class="item apiGroup">
+		  	<a href="./google_oauth/">Google OAuth2</a>
+		  </div>
+		</div>
+	</div>
 </div>
-
-<h1>Work</h1>
-<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-  <div class="item workGroup">
-  	<a href="./HIGHLIGHT">HIGHLIGHT</a>
-  </div>
-  <div class="item workGroup">
-  	<a href="./tbl_finder">tbl_finder</a>
-  </div>
-</div>
-
-<h1>API</h1>
-<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-  <div class="item apiGroup">
-  	<a href="./google_oauth/">Google OAuth2</a>
-  </div>
-</div>
-
 <hr />
-
 	<style type="text/css">
+		.header {
+			margin-left: 20px;
+		}
+		.container {
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-box;
+		}
+		.container > div {
+			width: 200px;
+			margin-left: 20px;
+		}
 		.htmlGroup {
 			background: #D26;
 		}
@@ -63,7 +83,7 @@
 			background: #D62;
 		}
 		.item { 
-			width: 25%;
+			width: 100%;
 			margin: 10px 1%;
 			float: left;
 			border-radius: 8px;
