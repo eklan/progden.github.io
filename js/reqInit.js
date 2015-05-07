@@ -1,10 +1,12 @@
 requirejs.config({
 	baseUrl: "../js",
 	paths: {
-		angular: 'angular.min',
-		bootstrap: 'bootstrap.min',
-		jquery: 'jquery-1.9.1.min',
-		masonry: 'masonry.pkgd.min'
+		reqInit: 	"reqInit",
+		angular: 	'angular.min',
+		bootstrap: 	'bootstrap.min',
+		jquery: 	'jquery-1.9.1.min',
+		masonry: 	'masonry.pkgd.min',
+		evernote: 	'evernote-sdk-minified',
 	},
 	shim: {
 		bootstrap: {
@@ -12,7 +14,6 @@ requirejs.config({
 		}
 	}
 });
-
 requirejs(["angular", "bootstrap"], function(angular, bootstrap) {
-
+	
 });

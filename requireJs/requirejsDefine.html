@@ -1,13 +1,28 @@
-<script data-main="js/init.js" src="../js/requirejs.js"></script>
+<script src="../js/requirejs.js"></script>
 <script type="text/javascript">
-	require(["angular"], function(angular) {
-		// // usage of define key -> val
-		// require(["defineProp"], function(prop){
-		// 	alert("k -> v module loaded!\nvalue(k1):"+prop.k1);
-		// });
-		// // usage of define(moduleName, function(){ /* constructor */})
-		// require(["defFuncRtObj"], function(obj){
+require(["js/init"], function(){
+	require(["angular"], function(){
+		// usage of define key -> val
+		require(["defineProp"], function(prop){
+			console.log("defineProp:");
+			console.log(prop);
+		});
+		// usage of define(moduleName, function(){ /* constructor */})
+		require(["defineFuncRtObj"], function(obj){
+			console.log("defineFuncRtObj:");
+			console.log(obj);
+		});
 
-		// });
+		require(["defineFuncRtNothing"], function(obj){
+			console.log("defineFuncRtNothing:");
+			console.log(obj);
+		});
+
+		require(["defineFuncRtFunc"], function(obj){
+			console.log("defineFuncRtFunc:");
+			console.log(obj);
+		});
+
 	});
+});
 </script>

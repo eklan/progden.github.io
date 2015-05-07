@@ -1,0 +1,21 @@
+<!-- load requirejs -->
+<script data-main="../js/reqInit.js" src="../js/requirejs.js"></script>
+
+<script type="text/javascript">
+	require(["reqInit"], function(){ // after init loaded
+		// config what you went here.
+		require(["evernote"], function(evernote){
+			var hostName = "http://www.evernote.com"; 
+			var options,oauth;
+			options = {
+			    consumerKey: "progden",
+			    consumerSecret: "7d2670ed3ecef628",
+			    callbackUrl : "http://prgoden.github.io/evernote/index.html",
+			    signatureMethod : "HMAC-SHA1",
+			};
+			oauth = OAuth(options);
+			oauth.request({'method': 'GET', 'url': hostName + '/oauth', 'success': success, 'failure': failure});
+		});
+	});
+</script>
+

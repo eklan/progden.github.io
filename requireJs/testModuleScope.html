@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	(function(){
+		this._this = "test";
+	}).call(this);
+
+	(function(){
+		this._this2 = "test2";
+	}).call({});
+
+	alert("window.test:"+window.test+"\n");
+</script>
+<pre>
+	(function(){
+		this._this = "test";
+	}).call(this);
+
+	(function(){
+		this._this2 = "test2";
+	}).call({});	
+</pre>

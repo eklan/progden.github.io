@@ -1,9 +1,9 @@
-var assetDir = "../",
-	moduleDir = "../modules/";
+var assetDir = "../js/",
+	moduleDir = "modules/";
 
 requirejs.config({
-	baseUrl: "../../js/",
 	paths: {
+		init: "init",
 		// assets
 		angular: 	assetDir + 'angular.min',
 		bootstrap: 	assetDir + 'bootstrap.min',
