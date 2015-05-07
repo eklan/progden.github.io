@@ -1,0 +1,23 @@
+<!-- load requirejs -->
+<script data-main="../js/reqInit.js" src="../js/requirejs.js"></script>
+
+<script type="text/javascript">
+	require(["reqInit"], function(){ // after init loaded
+		// config what you went here.
+		require(["angular", "bootstrap"], function(ng, bootstrap){
+			alert("js part 1 loaded.");
+			var moduleDir = "modules/"
+			requirejs.config({ 
+				baseUrl: ".", 
+				paths: {
+					defineProp: moduleDir + "defineProp",
+					defineFactory: moduleDir + "moduleFactory"
+				}
+			});
+			require(["defineProp", "defineFactory"], function(){
+				alert("js part 2 loaded.");
+			});
+		});
+	});
+</script>
+

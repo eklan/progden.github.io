@@ -1,1 +1,16 @@
-<script data-main="../js/reqInit.js" type="text/javascript" src="../js/requirejs.js"></script>
+<script data-main="js/init.js" src="../js/requirejs.js"></script>
+<script type="text/javascript">
+	require(["angular", "bootstrap"], function(angular, bootstrap) {
+		// usage of define key -> val
+		require(["defineProp"], function(prop){
+			alert("k -> v module loaded!\nvalue(k1):"+prop.k1);
+		});
+		// usage of define(moduleName, function(){ /* constructor */})
+		require(["defFuncRtObj"], function(obj){
+
+		})
+	});
+</script>
+<h1>RequireJS Testing</h1>
+<a href="configTwice.html">test config twice</a>
+<a href="requirejsDefine.html">RequireJS Define</a>
