@@ -6,7 +6,7 @@ requirejs.config({
 		bootstrap: 	'bootstrap.min',
 		jquery: 	'jquery-1.9.1.min',
 		masonry: 	'masonry.pkgd.min',
-		evernote: 	'evernote-sdk-minified',
+		evernote: 	'evernote-sdk-minified'
 	},
 	shim: {
 		bootstrap: {
