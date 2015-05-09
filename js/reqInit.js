@@ -14,6 +14,3 @@ requirejs.config({
 		}
 	}
 });
-requirejs(["angular", "bootstrap"], function(angular, bootstrap) {
-	
-});
