@@ -3,40 +3,42 @@
 	<!-- load requirejs -->
 	<script data-main="../js/reqInit.js" src="../js/requirejs.js"></script>
 	<script type="text/javascript">
+
 		require(["reqInit"], function(){
 			require(["angular", "bootstrap"], function(ng, bootstrap){
-				requirejs.config({
-					paths: {
-						ctrl1: "../angular/js/controller",
-						ctrl2: "../angular/js/controller2",
-					},
-					shim: {
-						ctrl1: {
-							deps: [
-								"angular"
-							]},
-						ctrl2: {
-							deps: [
-								"angular"
-							]}
-					}
-				});
-				require(["ctrl1", "ctrl2"], function(ctrl1, ctrl2){
-					angular.element(document).ready(function(){
-						angular.botstrap(document, ["myApp"]);
-					});
-				});
+				
+			});
+		});
+
+		requirejs.config({
+			paths: {
+				ctrl1: "../angular/js/controller",
+				ctrl2: "../angular/js/controller2",
+			},
+			shim: {
+				ctrl1: {
+					deps: [
+						"angular"
+					]},
+				ctrl2: {
+					deps: [
+						"angular"
+					]}
+			}
+		});
+		require(["ctrl1", "ctrl2"], function(ctrl1, ctrl2){
+			angular.element(document).ready(function(){
+				angular.bootstrap(document);
 			});
 		});
 	</script>
 </head>
 <body>
-	<div ng-controller="ctrl1">
-		<input ng-model="val" />
-	</div>
 	<div ng-controller="ctrl2">
-		<input ng-model="val" />
+		<input ng-model="val" />{{ctrl2.val}}
 	</div>
-
+	<div ng-controller="ctrl1">
+		<input ng-model="val" />{{ctrl1.val}}
+	</div>
 </body>
 </html>
