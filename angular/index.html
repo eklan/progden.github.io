@@ -6,29 +6,28 @@
 
 		require(["reqInit"], function(){
 			require(["angular", "bootstrap"], function(ng, bootstrap){
-				
-			});
-		});
+				requirejs.config({
+					paths: {
+						ctrl1: "../angular/js/controller",
+						ctrl2: "../angular/js/controller2",
+					},
+					shim: {
+						ctrl1: {
+							deps: [
+								"angular"
+							]},
+						ctrl2: {
+							deps: [
+								"angular"
+							]}
+					}
+				});
 
-		requirejs.config({
-			paths: {
-				ctrl1: "../angular/js/controller",
-				ctrl2: "../angular/js/controller2",
-			},
-			shim: {
-				ctrl1: {
-					deps: [
-						"angular"
-					]},
-				ctrl2: {
-					deps: [
-						"angular"
-					]}
-			}
-		});
-		require(["ctrl1", "ctrl2"], function(ctrl1, ctrl2){
-			angular.element(document).ready(function(){
-				angular.bootstrap(document);
+				require(["ctrl1", "ctrl2"], function(ctrl1, ctrl2){
+					angular.element(document).ready(function(){
+						angular.bootstrap(document);
+					});
+				});
 			});
 		});
 	</script>
