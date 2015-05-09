@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title></title>
+	<script id="flip-require" flip-asset="http://localhost/flip-asset"
+			src="http://localhost/flip-asset/repository/requirejs/2.1.5/require.js" ></script>
+	<script type="text/javascript">
+		(function(){
+			var flipAsset = "http://localhost/flip-asset/main/",
+			    versionStr = 'v=alpha0.0',
+			    sysContext = '/NSP2',
+			    logConfig = {
+			        // systemName : 'nsp2',
+			        systemContextPath : sysContext
+			    }, 
+			    ssoConfig = {
+			        systemContextPath : sysContext
+			    };
+			// FET CRM Framework用的config
+			define('initConfig', [], function() {
+				return {
+					'logConfig' : logConfig,
+					'versionStr' : versionStr,
+					'flipAsset': flipAsset,
+		            'ssoConfig': ssoConfig
+				};
+			});
+
+			require.config({
+				paths: {
+					flip: 			flipAsset+"js/main_docs",
+					TestController: "js/TestController"
+				}
+			});
+			
+			require(["flip"], function(){
+				require(["TestController"], function(){
+					angular.element(document).ready(function(){
+						angular.bootstrap(document, ['myApp']);
+					});
+				});
+			});
+		}).call({});
+	</script>
+</head>
+<body>
+
+<div>
+	<div ng-controller="MyController">
+		val:<input ng-model="val" /> &lt;==> <input ng-model="val" />
+		<div></div>
+	</div>
+</div>
+</body>
+</html>
