@@ -1,36 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-
 </head>
 <body>
 <div class="header">
 	<h1>Hello World</h1>
-	<p>I'm hosted with GitHub Pages.</p>
+	<p>This page is hosted in GitHub Pages.</p>
 </div>
 <div class="container">
 	<div>
-		<h1>HTML</h1>
+		<h1>Web</h1>
 		<div class="js-masonry"
 		  data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-		  <div class="item htmlGroup">
+		  <div class="item webGroup">
 		  	<a href="./browserClose">Browser Close Event</a>
+		  </div>
+		  <div class="item webGroup notFinished">
+		  	<a href="./WebFont">Web Font</a>
+		  </div>
+		  <div class="item webGroup notFinished">
+		  	<a href="./HTML5LocalStorage">HTML5 Local Storage</a>
 		  </div>
 		</div>
 	</div>
 
 	<div>
-		<h1>Games</h1>
+		<h1>Fun</h1>
 		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-		  <div class="item gameGroup">
+		  <div class="item funGroup">
 		  	<a href="./js_game/">js_game</a>
 		  </div>
-		  <div class="item gameGroup">
+		  <div class="item funGroup">
 		  	<a href="./bowling_kata/">bowling_kata</a>
+		  </div>
+		  <div class="item funGroup notFinished">
+		  	<a href="./drumming/">Drumming</a>
+		  </div>
+		</div>
+	</div>
+
+	<div>
+		<h1>Tech</h1>
+		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
+		  <div class="item techGroup">
+		  	<a href="./google_oauth/">Google OAuth2</a>
+		  </div>
+		  <div class="item techGroup">
+		  	<a href="./requireJs/">RequireJs</a>
+		  </div>
+		  <div class="item techGroup">
+		  	<a href="./HIGHLIGHT">HIGHLIGHT</a>
+		  </div>
+		  <div class="item techGroup notFinished">
+		  	<a href="./evernote">Evernote API</a>
 		  </div>
 		</div>
 	</div>
@@ -39,25 +67,24 @@
 		<h1>Work</h1>
 		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
 		  <div class="item workGroup">
-		  	<a href="./HIGHLIGHT">HIGHLIGHT</a>
-		  </div>
-		  <div class="item workGroup">
 		  	<a href="./tbl_finder">tbl_finder</a>
 		  </div>
 		</div>
-	</div>
+	</div>	
 
 	<div>
-		<h1>API</h1>
+		<h1>NotFinished</h1>
 		<div class="js-masonry" data-masonry-options='{ "columnWidth": 150, "itemSelector": ".item" }'>
-		  <div class="item apiGroup">
-		  	<a href="./google_oauth/">Google OAuth2</a>
-		  </div>
+		  
+		  
 		</div>
 	</div>
 </div>
 <hr />
 	<style type="text/css">
+		body {
+			font-family: 'Inconsolata' ;
+		}
 		.header {
 			margin-left: 20px;
 		}
@@ -70,16 +97,16 @@
 			width: 200px;
 			margin-left: 20px;
 		}
-		.htmlGroup {
+		.webGroup {
 			background: #D26;
 		}
-		.gameGroup {
+		.funGroup {
 			background: #6D2;
 		}
 		.workGroup {
 			background: #26D;
 		}
-		.apiGroup {
+		.techGroup {
 			background: #D62;
 		}
 		.item { 
@@ -94,6 +121,9 @@
 			color: white;
 			font-size: 13px;
   			font-weight: bold;
+		}
+		.notFinished {
+			background-color: rgba(255, 0, 0, .2);
 		}
 	</style>
 </body>
