@@ -7,20 +7,18 @@
 	<script data-main="../js/reqInit.js" src="../js/requirejs.js"></script>
 
 	<script type="text/javascript">
-		var success = function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		};
-		var failure = function(a, b, c){
-			console.log(a);
-			console.log(b);
-			console.log(c);
-		};
+		var success = function(data){
+			console.log('success ' + data);
+		}
+	    var failure = function(error) {
+	        console.log('error ' + error.text);
+	    };
+
 		require(["reqInit"], function(){ // after init loaded
 			// config what you went here.
 			require(["evernote"], function(evernote){
-				var hostName = "http://www.evernote.com"; 
+				// var hostName = "http://www.evernote.com"; 
+				var hostName = 'https://sandbox.evernote.com';
 				var options = {
 				    consumerKey: "progden",
 				    consumerSecret: "7d2670ed3ecef628",
