@@ -7,19 +7,10 @@
 		require(["reqInit"], function(){
 			require(["angular", "bootstrap"], function(ng, bootstrap){
 				requirejs.config({
+					baseUrl: "../angular/js",
 					paths: {
-						ctrl1: "../angular/js/controller",
-						ctrl2: "../angular/js/controller2",
-					},
-					shim: {
-						ctrl1: {
-							deps: [
-								"angular"
-							]},
-						ctrl2: {
-							deps: [
-								"angular"
-							]}
+						ctrl1: "controller",
+						ctrl2: "controller2"
 					}
 				});
 
@@ -33,7 +24,7 @@
 	</script>
 </head>
 <body>
-	<div ng-controller="ctrl2 as a">
+	<div ng-controller="ctrl2">
 		<input ng-model="val" />{{val}} 
 	</div>
 	<div ng-controller="ctrl1">
