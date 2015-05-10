@@ -33,11 +33,11 @@
 	</script>
 </head>
 <body>
-	<div ng-controller="ctrl2">
-		<input ng-model="val" />{{ctrl2.val}}
+	<div ng-controller="ctrl2 as a">
+		<input ng-model="val" />{{val}} 
 	</div>
 	<div ng-controller="ctrl1">
-		<input ng-model="val" />{{ctrl1.val}}
+		<input ng-model="val" />{{val}}
 	</div>
 </body>
 </html>
